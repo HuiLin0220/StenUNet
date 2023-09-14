@@ -165,7 +165,7 @@ class Prediction_algorithm():
             output_filename = f"/opt/app/saved_images/{new_name}"
             sitk.WriteImage(image, output_filename)
         
-        predict(self.input_images_path, self.output_images_path, self.model_folder, [0], 0.5,use_gaussian=True,use_mirroring=True,perform_everything_on_gpu=True,verbose=True,save_probabilities=False,overwrite=False,checkpoint_name=self.weight,num_processes_preprocessing=1,num_processes_segmentation_export=1)
+        predict(self.input_images_path, self.output_images_path, self.model_folder, [0], 0.5,use_gaussian=True,use_mirroring=True,perform_everything_on_gpu=True,verbose=True,save_probabilities=False,overwrite=False,checkpoint_name=self.weight,num_processes_preprocessing=1,num_processes_segmentation_export=1, device=device)
         
         remove_small_segments(self.output_images_path, self.post_output_images_path, threshold = 60)
         
