@@ -3,6 +3,7 @@
 # device = 'cuda'
 # device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')  # if torch.cuda.is_available() else 'cpu'
 # device = 'cpu'
+import torch
 device = torch.device('cpu')
 import os, json
 import SimpleITK as sitk
