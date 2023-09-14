@@ -13,7 +13,9 @@ from skimage import measure
 from shapely.geometry import Polygon
 from nnunetv2.inference.predict_from_raw_data import predict_from_raw_data as predict
 from post_process.remove_small_segments import remove_small_segments
-from utils.utils import mkdir
+from pre_process.preprocess import preprocess
+from utils.mkdir import mkdir
+import cv2
 
 #required functions:
 def image_to_array(image_path):
@@ -40,6 +42,8 @@ class Prediction_algorithm():
         self.model_folder = '/opt/app/model_folder/'
         self.input_images_path = "/opt/app/saved_images/"
         mkdir(self.input_images_path)
+        self.pre_input_images_path = "/opt/app/pre_input_images/" 
+        mkdir(self.pre_input_images_path)
           
     def predict_segmentation(self):
         i = 0
@@ -161,11 +165,22 @@ class Prediction_algorithm():
             # image.SetDirection(stacked_images.GetDirection())
             png_name = mapping_dictionary_preliminary_stenosis[f"slice_{filename}"]
             new_name = 'STEN_' + (png_name[:-4]).zfill(3) + '_0000.png'
+     
             
             output_filename = f"/opt/app/saved_images/{new_name}"
             sitk.WriteImage(image, output_filename)
         
-        predict(self.input_images_path, self.output_images_path, self.model_folder, [0], 0.5,use_gaussian=True,use_mirroring=True,perform_everything_on_gpu=True,verbose=True,save_probabilities=False,overwrite=False,checkpoint_name=self.weight,num_processes_preprocessing=1,num_processes_segmentation_export=1, device=device)
+        
+        for file_name in os.listdir(self.input_images_path):
+        
+            pre_images_path = self.input_images_path + file_name
+
+            img_array = image_to_array(pre_images_path)
+            pre_img = preprocess(img_array)
+            cv2.imwrite(self.pre_input_images_path + file_name, pre_img) 
+        
+        
+        predict(self.pre_input_images_path, self.output_images_path, self.model_folder, [0], 0.5,use_gaussian=True,use_mirroring=True,perform_everything_on_gpu=True,verbose=True,save_probabilities=False,overwrite=False,checkpoint_name=self.weight,num_processes_preprocessing=1,num_processes_segmentation_export=1,device = device)
         
         remove_small_segments(self.output_images_path, self.post_output_images_path, threshold = 60)
         
@@ -183,3 +198,4 @@ class Prediction_algorithm():
 if __name__ == "__main__":
     
     Prediction_algorithm().evaluate()
+
