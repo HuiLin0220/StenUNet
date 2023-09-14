@@ -11,6 +11,7 @@ from skimage import measure
 from shapely.geometry import Polygon
 from nnunetv2.inference.predict_from_raw_data import predict_from_raw_data as predict
 from post_process.remove_small_segments import remove_small_segments
+from util.util import mkdir
 
 #required functions:
 def image_to_array(image_path):
@@ -31,9 +32,12 @@ class Prediction_algorithm():
         self.output_file = os.path.join(folderpath_write, output_filename)
         self.weight = '/opt/app/weights/model_final.pth'
         self.output_images_path = '/opt/app/output_images/'
+        mkdir(self.output_images_path)
         self.post_output_images_path = '/opt/app/post_output_images/'
+        mkdir(self.post_output_images_path)
         self.model_folder = '/opt/app/model_folder/'
         self.input_images_path = "/opt/app/saved_images/"
+        mkdir(self.input_images_path)
           
     def predict_segmentation(self):
         i = 0
