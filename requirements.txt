@@ -33,4 +33,5 @@ Pillow
 connected-components-3d>=3.12.2
 shapely
 opencv-python
-SimpleITK
+skimage
+albumentations
