@@ -34,3 +34,4 @@ connected-components-3d>=3.12.2
 shapely
 opencv-python
 albumentations
+typing-extensions=4.7.1
