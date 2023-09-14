@@ -11,6 +11,8 @@ WORKDIR /opt/app
 
 ENV PATH="/home/user/.local/bin:${PATH}"
 
+RUN python -m pip install --user -U pip && python -m pip install --user pip-tools && python -m pip install --user shapely
+RUN python -m pip install --user numpy
 RUN python -m pip install --user SimpleITK
 
 COPY --chown=user:user requirements.txt /opt/app/
