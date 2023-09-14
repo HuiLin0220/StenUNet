@@ -11,7 +11,7 @@ WORKDIR /opt/app
 
 ENV PATH="/home/user/.local/bin:${PATH}"
 
-#RUN python -m pip install --user SimpleITK
+RUN python -m pip install --user SimpleITK
 
 COPY --chown=user:user requirements.txt /opt/app/
 RUN pip3 install --no-cache-dir -r /opt/app/requirements.txt
