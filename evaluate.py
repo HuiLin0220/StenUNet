@@ -82,7 +82,7 @@ class Prediction_algorithm():
             png_name = mapping_dictionary_preliminary_segmentation[f"slice_{filename}"]
             new_name = 'STEN_' + (png_name[:-4]).zfill(3) + '_0000.png'
             output_filename = f"/opt/app/saved_images/{new_name}"
-            print(output_filename)
+            
             sitk.WriteImage(image, output_filename)
         
         
