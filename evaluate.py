@@ -31,7 +31,7 @@ class Prediction_algorithm():
 
         self.input_images_path = "/opt/app/saved_images/"
         mkdir(self.input_images_path)
-        '''
+        
         #self.weight = '/opt/app/weights/model_final.pth'
         self.output_images_path = '/opt/app/output_images/'
         mkdir(self.output_images_path)
@@ -41,7 +41,7 @@ class Prediction_algorithm():
         
         self.pre_input_images_path = "/opt/app/pre_input_images/" 
         mkdir(self.pre_input_images_path)
-        '''
+        
     def evaluate(self):
 
 
