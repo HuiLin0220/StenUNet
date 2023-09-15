@@ -4,7 +4,7 @@ RUN groupadd -r user && useradd -m --no-log-init -r -g user user
 
 RUN mkdir -p /opt/app \ 
     && chown user:user /opt/app 
-
+RUN mkdir -p /opt/app/saved_images
 
 USER user
 WORKDIR /opt/app
