@@ -25,7 +25,7 @@ def preprocess(img):
         p('image new shape: {}'.format(image.shape))
 
     # 1 homomorphic transform
-    #homomorphic_img = homo.apply_filter(image.copy())
+    homomorphic_img = homo.apply_filter(image.copy())
 
     # 2 Normalize
     nml_homomorphic_img = normalize(homomorphic_img)
