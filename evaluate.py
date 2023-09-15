@@ -1,5 +1,6 @@
 # all imports required for your model
-
+import sys
+sys.path.append("/opt/app/")
 # device = 'cuda'
 # device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')  # if torch.cuda.is_available() else 'cpu'
 # device = 'cpu'
