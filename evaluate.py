@@ -28,6 +28,8 @@ class Prediction_algorithm():
         output_filename  = 'coronary-artery-segmentation.json'
         self.output_file = os.path.join(folderpath_write, output_filename)
         self.empty_json_path = '/opt/app/empty_annotations.json'
+
+        '''
         #self.weight = '/opt/app/weights/model_final.pth'
         self.output_images_path = '/opt/app/output_images/'
         mkdir(self.output_images_path)
@@ -38,7 +40,7 @@ class Prediction_algorithm():
         mkdir(self.input_images_path)
         self.pre_input_images_path = "/opt/app/pre_input_images/" 
         mkdir(self.pre_input_images_path)
-
+        '''
     def evaluate(self):
 
 
@@ -76,14 +78,14 @@ class Prediction_algorithm():
             # image.SetSpacing(stacked_images.GetSpacing())
             # image.SetOrigin(stacked_images.GetOrigin())
             # image.SetDirection(stacked_images.GetDirection())
-            png_name = mapping_dictionary_preliminary_stenosis[f"slice_{filename}"]
+            png_name = mapping_dictionary_preliminary_segmentation[f"slice_{filename}"]
             new_name = 'STEN_' + (png_name[:-4]).zfill(3) + '_0000.png'
      
             
             output_filename = f"/opt/app/saved_images/{new_name}"
             sitk.WriteImage(image, output_filename)
         
-        
+        '''
         for file_name in os.listdir(self.input_images_path):
         
             pre_images_path = self.input_images_path + file_name
@@ -91,12 +93,12 @@ class Prediction_algorithm():
             img_array = image_to_array(pre_images_path)
             pre_img = preprocess(img_array)
             cv2.imwrite(self.pre_input_images_path + file_name, pre_img) 
-        
+        '''
         
         #predict(self.pre_input_images_path, self.output_images_path, self.model_folder, [0], 0.5,use_gaussian=True,use_mirroring=True,perform_everything_on_gpu=True,verbose=True,save_probabilities=False,overwrite=False,checkpoint_name=self.weight,num_processes_preprocessing=1,num_processes_segmentation_export=1)
         
-        remove_small_segments(self.pre_input_images_path, self.post_output_images_path, threshold = 60)
-        export_json(self.post_output_images_path, output_json_path=self.output_file,empty_json_path = self.empty_json_path)
+        #remove_small_segments(self.pre_input_images_path, self.post_output_images_path, threshold = 60)
+        export_json(self.input_images_path, output_json_path=self.output_file,empty_json_path = self.empty_json_path)
         
         print("Success with algorithm")
                 
