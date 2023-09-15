@@ -112,3 +112,81 @@ def export_json(results_path, output_json_path='/opt/app/coronary-artery-segment
     with open(output_json_path, "w", encoding='ascii') as file:
           json.dump(empty_submit, file)
     print(output_json_path)
+
+
+def test_export_json(output_json_path='/opt/app/coronary-artery-segmentation.json',empty_json_path = '/opt/app/json_out/empty_annotations.json'):
+    num_images = len(os.listdir(results_path))
+    with open(empty_json_path) as file:
+        gt = json.load(file)
+
+    gt_images = [{
+                "id": i+1,
+                "width": 512,
+                "height": 512,
+                "file_name": f"{i+1}.png",
+                "license": 0,
+                "date_captured": iso_datetime
+                }
+                for i in range(num_images)]
+
+
+    info = {'description': 'NU Team 2023',
+           'version': 'v1',
+           'year': 2023,
+           'contributor': 'Hui',
+            'date_created': datetime.today().strftime("%Y-%m-%d")}
+
+    licenses = [{'id': i+1,
+                 'name': f"{i+1}.png",
+                 'url': ""} for i in range(num_images)]
+
+    empty_submit = dict()
+    empty_submit["images"] = gt_images
+    empty_submit["categories"] = gt["categories"]
+    empty_submit["annotations"] = []
+    empty_submit["info"] = info
+    empty_submit["licenses"] = licenses
+
+        
+    gt_mask = np.zeros([num_images, 26, 512, 512])        
+        
+    count_anns = 1
+    for img_id, img in enumerate(gt_mask, 0):
+            image_name = image_list[img_id] 
+            
+            
+            for cls_id, cls in enumerate(img, 0):
+              contours = measure.find_contours(cls)
+              for contour in contours:            
+                for i in range(len(contour)):
+                  row, col = contour[i]
+                  contour[i] = (col - 1, row - 1)
+
+                # Simplify polygon
+                poly = Polygon(contour)
+                poly = poly.simplify(1.0, preserve_topology=False)
+            
+                if(poly.is_empty):
+                  continue
+                segmentation = np.array(poly.exterior.coords).ravel().tolist()
+                new_ann = dict()
+                new_ann["id"] = count_anns
+                new_ann["image_id"] = img_id+1
+                
+                new_ann["category_id"] = cls_id+1
+                new_ann["segmentation"] = [segmentation]
+                new_ann["area"] = poly.area
+                x, y = contour.min(axis=0)
+                w, h = contour.max(axis=0) - contour.min(axis=0)
+                new_ann["bbox"]  = [int(x), int(y), int(w), int(h)]
+                new_ann["iscrowd"] = 0
+                new_ann["attributes"] = {
+                  "occluded": False
+                }
+                count_anns += 1
+                empty_submit["annotations"].append(new_ann.copy())
+        
+    print('generating json file')    
+    with open(output_json_path, "w", encoding='ascii') as file:
+          json.dump(empty_submit, file)
+    print(output_json_path)
