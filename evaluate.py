@@ -29,6 +29,9 @@ class Prediction_algorithm():
         self.output_file = os.path.join(folderpath_write, output_filename)
         self.empty_json_path = '/opt/app/empty_annotations.json'
 
+
+        self.input_images_path = "/opt/app/saved_images/"
+        mkdir(self.input_images_path)
         '''
         #self.weight = '/opt/app/weights/model_final.pth'
         self.output_images_path = '/opt/app/output_images/'
@@ -36,8 +39,7 @@ class Prediction_algorithm():
         self.post_output_images_path = '/opt/app/post_output_images/'
         mkdir(self.post_output_images_path)
         self.model_folder = '/opt/app/model_folder/'
-        self.input_images_path = "/opt/app/saved_images/"
-        mkdir(self.input_images_path)
+        
         self.pre_input_images_path = "/opt/app/pre_input_images/" 
         mkdir(self.pre_input_images_path)
         '''
