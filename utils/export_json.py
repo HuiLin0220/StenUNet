@@ -15,7 +15,7 @@ def image_to_array(image_path):
     array = np.array(image)
     return array
 
-def export_json(results_path, output_json_path='/opt/app/coronary-artery-segmentation.json',empty_json_path = '/opt/app/json_out/empty_annotations.json'):
+def export_json(results_path, output_json_path,empty_json_path):
     num_images = len(os.listdir(results_path))
     with open(empty_json_path) as file:
         gt = json.load(file)
