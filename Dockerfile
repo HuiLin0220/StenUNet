@@ -23,7 +23,7 @@ RUN pip3 install --user --no-cache-dir -r /opt/app/requirements.txt
 # RUN python -m piptools sync requirements.txt
 
 # COPY --chown=user:user weights /opt/app/weights
-COPY --chown=user:user model_final.pth /opt/app/weights/
+#COPY --chown=user:user model_final.pth /opt/app/weights/
 
 COPY --chown=user:user evaluate.py /opt/app/ 
 #COPY --chown=user:user saved_images /opt/app/saved_images
