@@ -3,12 +3,10 @@
 # device = 'cuda'
 # device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')  # if torch.cuda.is_available() else 'cpu'
 # device = 'cpu'
-import torch
-device = torch.device('cpu')
+#import torch
+#device = torch.device('cpu')
 import os
 import SimpleITK as sitk
-
-from skimage import measure
 
 from nnunetv2.inference.predict_from_raw_data import predict_from_raw_data as predict
 from post_process.remove_small_segments import remove_small_segments
@@ -30,8 +28,8 @@ class Prediction_algorithm():
         self.empty_json_path = '/opt/app/empty_annotations.json'
 
 
-        self.input_images_path = "/opt/app/saved_images/"
-        mkdir(self.input_images_path)
+        #self.input_images_path = "/opt/app/saved_images/"
+        #mkdir(self.input_images_path)
         '''
         #self.weight = '/opt/app/weights/model_final.pth'
         self.output_images_path = '/opt/app/output_images/'
