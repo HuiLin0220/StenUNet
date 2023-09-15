@@ -85,7 +85,7 @@ class Prediction_algorithm():
             print(output_filename)
             sitk.WriteImage(image, output_filename)
         
-        '''
+        
         for file_name in os.listdir(self.input_images_path):
         
             pre_images_path = self.input_images_path + file_name
@@ -93,7 +93,7 @@ class Prediction_algorithm():
             img_array = image_to_array(pre_images_path)
             pre_img = preprocess(img_array)
             cv2.imwrite(self.pre_input_images_path + file_name, pre_img) 
-        '''
+        
         
         #predict(self.pre_input_images_path, self.output_images_path, self.model_folder, [0], 0.5,use_gaussian=True,use_mirroring=True,perform_everything_on_gpu=True,verbose=True,save_probabilities=False,overwrite=False,checkpoint_name=self.weight,num_processes_preprocessing=1,num_processes_segmentation_export=1)
         
