@@ -114,7 +114,7 @@ def export_json(results_path, output_json_path='/opt/app/coronary-artery-segment
     print(output_json_path)
 
 def test_export_json(output_json_path='/opt/app/coronary-artery-segmentation.json',empty_json_path = '/opt/app/json_out/empty_annotations.json'):
-    num_images = len(os.listdir(results_path))
+    num_images = 30
     with open(empty_json_path) as file:
         gt = json.load(file)
 
@@ -151,9 +151,7 @@ def test_export_json(output_json_path='/opt/app/coronary-artery-segmentation.jso
         
     count_anns = 1
     for img_id, img in enumerate(gt_mask, 0):
-            image_name = image_list[img_id] 
-            
-            
+           
             for cls_id, cls in enumerate(img, 0):
               contours = measure.find_contours(cls)
               for contour in contours:            
