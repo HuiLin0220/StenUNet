@@ -29,9 +29,14 @@ COPY --chown=user:user evaluate.py /opt/app/
 #COPY --chown=user:user saved_images /opt/app/saved_images
 #COPY --chown=user:user output_images /opt/app/output_images
 #COPY --chown=user:user post_output_images /opt/app/post_output_images
+
 COPY --chown=user:user model_folder /opt/app/model_folder
 COPY --chown=user:user nnunetv2 /opt/app/nnunetv2
+COPY --chown=user:user utils /opt/app/utils
+COPY --chown=user:user post_process /opt/app/post_process
+COPY --chown=user:user pre_process /opt/app/pre_process
 COPY --chown=user:user empty_annotations.json /opt/app/
+
 #COPY --chown=user:user ground-truth/ground_truth_segmentation.json /opt/app/ground-truth/
 
 ENTRYPOINT [ "python", "-m", "evaluate" ]
