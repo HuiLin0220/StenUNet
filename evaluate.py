@@ -4,25 +4,18 @@
 # device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')  # if torch.cuda.is_available() else 'cpu'
 # device = 'cpu'
 import torch
-#device = torch.device('cpu')
-import os, json
+device = torch.device('cpu')
+import os
 import SimpleITK as sitk
-from PIL import Image
-import numpy as np
+
 from skimage import measure
 from shapely.geometry import Polygon
 from nnunetv2.inference.predict_from_raw_data import predict_from_raw_data as predict
 from post_process.remove_small_segments import remove_small_segments
 from pre_process.preprocess import preprocess
 from utils.mkdir import mkdir
+from utils.export_json import *
 import cv2
-
-#required functions:
-def image_to_array(image_path):
-    image = Image.open(image_path)
-    array = np.array(image)
-    return array
-#reading inputs and output folders:
 
 class Prediction_algorithm():
 
@@ -34,6 +27,7 @@ class Prediction_algorithm():
         folderpath_write = r'/output/'
         output_filename  = 'coronary-artery-segmentation.json'
         self.output_file = os.path.join(folderpath_write, output_filename)
+        self.empty_json_path = '/opt/app/empty_annotations.json'
         self.weight = '/opt/app/weights/model_final.pth'
         self.output_images_path = '/opt/app/output_images/'
         mkdir(self.output_images_path)
@@ -44,87 +38,6 @@ class Prediction_algorithm():
         mkdir(self.input_images_path)
         self.pre_input_images_path = "/opt/app/pre_input_images/" 
         mkdir(self.pre_input_images_path)
-          
-    def predict_segmentation(self):
-        i = 0
-        image_list = []
-        results_path = self.post_output_images_path
-        gt_mask = np.zeros([len(os.listdir(results_path)), 26, 512, 512])
-        
-        for file_name in os.listdir(results_path):
-        
-            result_path = results_path + file_name
-            image_name = str(int(file_name[5:8]))+'.png'
-            
-            if os.path.exists(result_path):
-                prediction_array = image_to_array(result_path)
-            else:
-                prediction_array = np.zeros((512,512))
-            
-            image_list.append(image_name)
-            gt_mask[i,25] = prediction_array
-            i+=1    
-        
-        with open('/opt/app/ground-truth/ground_truth_segmentation.json') as file:
-            gt = json.load(file)              
-        
-        
-        empty_submit = dict()
-        empty_submit["images"] = gt["images"]
-        empty_submit["categories"] = gt["categories"]
-        empty_submit["annotations"] = []
-    
-        image_name_id_dict = {}
-        for image in empty_submit["images"]:
-            image_name_id_dict[image['file_name']] = image['id']
-    
-        count_anns = 1
-        for img_id, img in enumerate(gt_mask, 0):
-            image_name = image_list[img_id] 
-            
-            
-            for cls_id, cls in enumerate(img, 0):
-              contours = measure.find_contours(cls)
-              for contour in contours:            
-                for i in range(len(contour)):
-                  row, col = contour[i]
-                  contour[i] = (col - 1, row - 1)
-
-                # Simplify polygon
-                poly = Polygon(contour)
-                poly = poly.simplify(1.0, preserve_topology=False)
-            
-                if(poly.is_empty):
-                  continue
-                segmentation = np.array(poly.exterior.coords).ravel().tolist()
-                new_ann = dict()
-                new_ann["id"] = count_anns
-                new_ann["image_id"] = image_name_id_dict[image_name]
-                
-                new_ann["category_id"] = cls_id+1
-                new_ann["segmentation"] = [segmentation]
-                new_ann["area"] = poly.area
-                x, y = contour.min(axis=0)
-                w, h = contour.max(axis=0) - contour.min(axis=0)
-                new_ann["bbox"]  = [int(x), int(y), int(w), int(h)]
-                new_ann["iscrowd"] = 0
-                new_ann["attributes"] = {
-                  "occluded": False
-                }
-                count_anns += 1
-                empty_submit["annotations"].append(new_ann.copy())
-        
-        with open(self.output_file, "w", encoding='ascii') as file:
-          json.dump(empty_submit, file)
-        
-        #return empty_submit
-    
-    #def predict_segmentation(self):
-        # Here you should create your COCO Formatted json file with all annotations, be sure that it satisfies the JSON SCHEMA provided in instructions
-        #gt_annotation = open('/opt/app/ground-truth/ground_truth_segmentation.json')
-        #gt_annotation = json.load(gt_annotation)
-
-        #return gt_annotation
 
     def evaluate(self):
 
@@ -183,12 +96,7 @@ class Prediction_algorithm():
         predict(self.pre_input_images_path, self.output_images_path, self.model_folder, [0], 0.5,use_gaussian=True,use_mirroring=True,perform_everything_on_gpu=True,verbose=True,save_probabilities=False,overwrite=False,checkpoint_name=self.weight,num_processes_preprocessing=1,num_processes_segmentation_export=1)
         
         remove_small_segments(self.output_images_path, self.post_output_images_path, threshold = 60)
-        
-        # Now, after extracting images you can start your evaluation, make sure format of final json file is correct
-        self.predict_segmentation()
-
-        #with open(self.output_file, 'w', encoding='ascii') as f:
-                #json.dump(annotations,f)
+        export_json(self.post_output_images_path, output_json_path=self.output_file,empty_json_path = self.empty_json_path)
         
         print("Success with algorithm")
                 
