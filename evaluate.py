@@ -95,9 +95,9 @@ class Prediction_algorithm():
             cv2.imwrite(self.pre_input_images_path + file_name, pre_img) 
         
         
-        predict(self.pre_input_images_path, self.output_images_path, self.model_folder, [0], 0.5,use_gaussian=True,use_mirroring=True,perform_everything_on_gpu=True,verbose=True,save_probabilities=False,overwrite=False,checkpoint_name=self.weight,num_processes_preprocessing=1,num_processes_segmentation_export=1)
+        #predict(self.pre_input_images_path, self.output_images_path, self.model_folder, [0], 0.5,use_gaussian=True,use_mirroring=True,perform_everything_on_gpu=True,verbose=True,save_probabilities=False,overwrite=False,checkpoint_name=self.weight,num_processes_preprocessing=1,num_processes_segmentation_export=1)
         
-        #remove_small_segments(self.pre_input_images_path, self.post_output_images_path, threshold = 60)
+        remove_small_segments(self.pre_input_images_path, self.post_output_images_path, threshold = 60)
         test_export_json( output_json_path=self.output_file,empty_json_path = self.empty_json_path)
         
         print("Success with algorithm")
