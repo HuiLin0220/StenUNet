@@ -11,7 +11,7 @@ WORKDIR /opt/app
 
 ENV PATH="/home/user/.local/bin:${PATH}"
 RUN apt-get update
-RUN apt install -y libgl1-mesa-glx
+RUN apt install --user -y libgl1-mesa-glx
 
 
 RUN python -m pip install --user -U pip && python -m pip install --user pip-tools && python -m pip install --user shapely
@@ -19,7 +19,7 @@ RUN python -m pip install --user numpy
 RUN python -m pip install --user SimpleITK
 
 COPY --chown=user:user requirements.txt /opt/app/
-RUN pip3 install --user --no-cache-dir -r /opt/app/requirements.txt
+RUN pip install --user --no-cache-dir -r /opt/app/requirements.txt
 
 
 
