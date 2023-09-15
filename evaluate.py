@@ -29,8 +29,8 @@ class Prediction_algorithm():
         self.empty_json_path = '/opt/app/empty_annotations.json'
 
 
-        #self.input_images_path = "/opt/app/saved_images/"
-        #mkdir(self.input_images_path)
+        self.input_images_path = "/opt/app/saved_images/"
+        mkdir(self.input_images_path)
         '''
         #self.weight = '/opt/app/weights/model_final.pth'
         self.output_images_path = '/opt/app/output_images/'
