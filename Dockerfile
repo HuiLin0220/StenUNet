@@ -10,8 +10,7 @@ USER user
 WORKDIR /opt/app
 
 ENV PATH="/home/user/.local/bin:${PATH}"
-RUN apt-get update
-RUN apt install --user -y libgl1-mesa-glx
+
 
 
 RUN python -m pip install --user -U pip && python -m pip install --user pip-tools && python -m pip install --user shapely
