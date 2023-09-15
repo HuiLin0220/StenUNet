@@ -25,11 +25,11 @@ def preprocess(img):
         p('image new shape: {}'.format(image.shape))
 
     # 1 homomorphic transform
-    homomorphic_img = homo.apply_filter(image.copy())
+    #homomorphic_img = homo.apply_filter(image.copy())
 
     # 2 Normalize
     nml_homomorphic_img = normalize(homomorphic_img)
-
+    '''
     # 3 multiscale
     multi_scale_img = multi_scale(nml_homomorphic_img.copy())
 
@@ -54,6 +54,6 @@ def preprocess(img):
     high_pass_spatial_mean = remove_spatial_mean(nml_homomorphic_img)
     ddfb_vessels = ddfb(high_pass_spatial_mean)
     enhanced_vessels = adjust_scale(multi_scale_img + ddfb_vessels)
-
+    '''
     #return all images
     return nml_homomorphic_img
