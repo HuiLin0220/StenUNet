@@ -81,10 +81,8 @@ class Prediction_algorithm():
             # image.SetDirection(stacked_images.GetDirection())
             png_name = mapping_dictionary_preliminary_segmentation[f"slice_{filename}"]
             new_name = 'STEN_' + (png_name[:-4]).zfill(3) + '_0000.png'
-            print(png_name)
-            print(output_filename)
-            
             output_filename = f"/opt/app/saved_images/{new_name}"
+            print(output_filename)
             sitk.WriteImage(image, output_filename)
         
         '''
