@@ -31,4 +31,4 @@ Pillow
 connected-components-3d>=3.12.2
 opencv-python
 albumentations
-typing-extensions=4.7.1
+typing-extensions==4.7.1
