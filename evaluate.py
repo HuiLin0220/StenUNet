@@ -9,7 +9,7 @@ import os
 import SimpleITK as sitk
 
 from skimage import measure
-from shapely.geometry import Polygon
+
 from nnunetv2.inference.predict_from_raw_data import predict_from_raw_data as predict
 from post_process.remove_small_segments import remove_small_segments
 from pre_process.preprocess import preprocess
