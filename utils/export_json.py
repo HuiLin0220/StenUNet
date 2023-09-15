@@ -113,7 +113,7 @@ def export_json(results_path, output_json_path,empty_json_path):
           json.dump(empty_submit, file)
     print(output_json_path)
 
-def test_export_json(output_json_path='/opt/app/coronary-artery-segmentation.json',empty_json_path = '/opt/app/json_out/empty_annotations.json'):
+def test_export_json(output_json_path,empty_json_path):
     num_images = 30
     with open(empty_json_path) as file:
         gt = json.load(file)
