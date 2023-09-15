@@ -113,7 +113,6 @@ def export_json(results_path, output_json_path='/opt/app/coronary-artery-segment
           json.dump(empty_submit, file)
     print(output_json_path)
 
-
 def test_export_json(output_json_path='/opt/app/coronary-artery-segmentation.json',empty_json_path = '/opt/app/json_out/empty_annotations.json'):
     num_images = len(os.listdir(results_path))
     with open(empty_json_path) as file:
