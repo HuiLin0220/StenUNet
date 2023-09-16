@@ -56,7 +56,7 @@ class Prediction_algorithm():
         # FYI, metadata was omitted when uploading mha file to Grand Challenge Platform, that's why please use dictionary below
 
         image_filenames = []
-        for i in range(0,30): #or for i in range(0,300) if it is final cases
+        for i in range(0,300): #or for i in range(0,300) if it is final cases
             image_filenames.append(f"{i}.png")
 
         mapping_dictionary_preliminary_segmentation = {'slice_4.png': '23.png', 'slice_13.png': '8.png', 'slice_26.png': '4.png', 'slice_7.png': '10.png', 'slice_8.png': '16.png', 'slice_10.png': '9.png', 'slice_9.png': '27.png', 'slice_18.png': '19.png', 'slice_19.png': '26.png', 'slice_6.png': '18.png', 'slice_17.png': '20.png', 'slice_14.png': '6.png', 'slice_21.png': '28.png', 'slice_25.png': '30.png', 'slice_2.png': '14.png', 'slice_5.png': '29.png', 'slice_24.png': '12.png', 'slice_1.png': '2.png', 'slice_23.png': '7.png', 'slice_29.png': '17.png', 'slice_11.png': '15.png', 'slice_20.png': '1.png', 'slice_15.png': '22.png', 'slice_27.png': '3.png', 'slice_3.png': '13.png', 'slice_22.png': '5.png', 'slice_12.png': '11.png', 'slice_0.png': '24.png', 'slice_28.png': '21.png', 'slice_16.png': '25.png'}
@@ -79,7 +79,7 @@ class Prediction_algorithm():
             # image.SetSpacing(stacked_images.GetSpacing())
             # image.SetOrigin(stacked_images.GetOrigin())
             # image.SetDirection(stacked_images.GetDirection())
-            png_name = mapping_dictionary_preliminary_segmentation[f"slice_{filename}"]
+            png_name = mapping_dictionary_final_stenosis[f"slice_{filename}"]
             new_name = 'STEN_' + (png_name[:-4]).zfill(3) + '_0000.png'
             output_filename = f"/opt/app/saved_images/{new_name}"
             
