@@ -11,7 +11,6 @@ Please refer to [MICCAI-ARCADE](https://github.com/NMHeartAI/MICCAI_ARCADE.git) 
       cd StenUNet
       pip install  -r ./requirements.txt
 
-  should keep .gitattributes, since the model file is a large file
 
 ## References and Acknowledgements:
 
