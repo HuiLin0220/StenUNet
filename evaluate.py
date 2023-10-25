@@ -1,12 +1,8 @@
 # all imports required for your model
-import sys
-sys.path.append("/opt/app/")
-# device = 'cuda'
-# device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')  # if torch.cuda.is_available() else 'cpu'
-# device = 'cpu'
-#import torch
-#device = torch.device('cpu')
+import torch
+
 import os
+import cv2
 import SimpleITK as sitk
 
 from nnunetv2.inference.predict_from_raw_data import predict_from_raw_data as predict
@@ -14,7 +10,10 @@ from post_process.remove_small_segments import remove_small_segments
 from pre_process.preprocess import preprocess
 from utils.mkdir import mkdir
 from utils.export_json import *
-import cv2
+
+# device = 'cuda' or 'cpu'
+device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')  # if torch.cuda.is_available() else 'cpu'
+print(f'cuda is available' if torch.cuda.is_available() else 'cpu')
 
 class Prediction_algorithm():
 
@@ -26,25 +25,22 @@ class Prediction_algorithm():
         folderpath_write = r'/output/'
         output_filename  = 'coronary-artery-segmentation.json'
         self.output_file = os.path.join(folderpath_write, output_filename)
+        
         self.empty_json_path = '/opt/app/empty_annotations.json'
-
+        self.weight = '/opt/app/weights/model_final.pth'
+        self.model_folder = '/opt/app/model_folder/'
 
         self.input_images_path = "/opt/app/saved_images/"
         mkdir(self.input_images_path)
-        
-        #self.weight = '/opt/app/weights/model_final.pth'
+        self.pre_input_images_path = "/opt/app/pre_input_images/" 
+        mkdir(self.pre_input_images_path)
         self.output_images_path = '/opt/app/output_images/'
         mkdir(self.output_images_path)
         self.post_output_images_path = '/opt/app/post_output_images/'
         mkdir(self.post_output_images_path)
-        self.model_folder = '/opt/app/model_folder/'
-        
-        self.pre_input_images_path = "/opt/app/pre_input_images/" 
-        mkdir(self.pre_input_images_path)
-        
+
     def evaluate(self):
-
-
+        
         # Path to the MHA file
         mha_file = self.input_path
         print(mha_file)
@@ -79,10 +75,10 @@ class Prediction_algorithm():
             # image.SetSpacing(stacked_images.GetSpacing())
             # image.SetOrigin(stacked_images.GetOrigin())
             # image.SetDirection(stacked_images.GetDirection())
-            png_name = mapping_dictionary_final_stenosis[f"slice_{filename}"]
+            png_name = mapping_dictionary_final_stenosis [f"slice_{filename}"]
             new_name = 'STEN_' + (png_name[:-4]).zfill(3) + '_0000.png'
-            output_filename = f"/opt/app/saved_images/{new_name}"
             
+            output_filename = f"/opt/app/saved_images/{new_name}"
             sitk.WriteImage(image, output_filename)
         
         
@@ -95,13 +91,11 @@ class Prediction_algorithm():
             cv2.imwrite(self.pre_input_images_path + file_name, pre_img) 
         
         
-        #predict(self.pre_input_images_path, self.output_images_path, self.model_folder, [0], 0.5,use_gaussian=True,use_mirroring=True,perform_everything_on_gpu=True,verbose=True,save_probabilities=False,overwrite=False,checkpoint_name=self.weight,num_processes_preprocessing=1,num_processes_segmentation_export=1)
-        
-        remove_small_segments(self.pre_input_images_path, self.post_output_images_path, threshold = 60)
-        test_export_json( output_json_path=self.output_file,empty_json_path = self.empty_json_path)
+        predict(self.pre_input_images_path, self.output_images_path, self.model_folder, [0], 0.5,use_gaussian=True,use_mirroring=True,perform_everything_on_gpu=True,verbose=True,save_probabilities=False,overwrite=False,checkpoint_name=self.weight,num_processes_preprocessing=1,num_processes_segmentation_export=1,device = device)
+        remove_small_segments(self.output_images_path, self.post_output_images_path, threshold = 600)
+        export_json(self.post_output_images_path, output_json_path=self.output_file,empty_json_path = self.empty_json_path)
         
         print("Success with algorithm")
-                
         return "Finished"
 
 
