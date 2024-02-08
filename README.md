@@ -1,7 +1,7 @@
 # Introduction
 This algorithm is for the stenosis detection task in [ARCADE Challenge](https://arcade.grand-challenge.org/), which was held at MICCAI 2023. We are ranked **3rd**! 
 
-Our publication:  StenUNet: Automatic Stenosis Detection from X-ray Coronary Angiography[Arxiv]([https://arcade.grand-challenge.org/](https://arxiv.org/abs/2310.14961))
+Our publication:  StenUNet: Automatic Stenosis Detection from X-ray Coronary Angiography [Arxiv](https://arxiv.org/abs/2310.14961)
 
 Please refer to [MICCAI-ARCADE](https://github.com/NMHeartAI/MICCAI_ARCADE.git) for the segmentation detection task.
 
