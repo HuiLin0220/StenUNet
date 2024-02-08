@@ -1,5 +1,5 @@
 # Introduction
-This algorithm is for the stenosis detection task in [ARCADE Challenge](https://arcade.grand-challenge.org/), which was held at MICCAI 2023. We are ranked <span style = 'font-size:100px'> **3rd** </span>! 
+This algorithm is for the stenosis detection task in [ARCADE Challenge](https://arcade.grand-challenge.org/), which was held at MICCAI 2023. We are ranked <span style = 'font-size:100 px'> **3rd** </span>! 
 
 Our publication:  StenUNet: Automatic Stenosis Detection from X-ray Coronary Angiography [Arxiv](https://arxiv.org/abs/2310.14961)
 
