@@ -1,6 +1,5 @@
 # Introduction
-Algorithms for stenosis detection in [ARCADE Challenge](https://arcade.grand-challenge.org/) held at MICCAI 2023. We are ranked 3rd!
-
+This algorithm is for the stenosis detection task in [ARCADE Challenge](https://arcade.grand-challenge.org/), which was held at MICCAI 2023. We are ranked 3rd! Our publication: StenUNet: Automatic Stenosis Detection from X-ray Coronary Angiography 
 Please refer to [MICCAI-ARCADE](https://github.com/NMHeartAI/MICCAI_ARCADE.git) for the segmentation detection task.
 
 
