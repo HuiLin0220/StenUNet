@@ -13,7 +13,7 @@ Please refer to [MICCAI-ARCADE](https://github.com/NMHeartAI/MICCAI_ARCADE.git) 
       cd StenUNet
       pip install  -r ./requirements.txt
 ## Inferences
-- StenUnet's [architecture](nnunetv2/dynamic_network_architectures/architectures/unet.py), [plan](dataset_model_config/plan.json), and weight ([Google drive](XX)).
+- StenUnet's [architecture](nnunetv2/dynamic_network_architectures/architectures/unet.py), [plan](dataset_model_config/plan.json), and weight ([Google drive]((https://drive.google.com/file/d/1BO4whry0i50h_yzqQwUw1k7QyyLUk2U3/view?usp=sharing))).
 ## References and Acknowledgements:
 
       @misc{lin2023stenunet,
