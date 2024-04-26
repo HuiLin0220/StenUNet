@@ -12,7 +12,7 @@ Please refer to [MICCAI-ARCADE](https://github.com/NMHeartAI/MICCAI_ARCADE.git) 
       git clone https://github.com/HuiLin0220/StenUNet.git
       cd StenUNet
       pip install  -r ./requirements.txt
-
+## Inferences
 
 ## References and Acknowledgements:
 
