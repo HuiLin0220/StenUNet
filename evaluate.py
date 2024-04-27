@@ -18,8 +18,9 @@ print(f'cuda is available' if torch.cuda.is_available() else 'cpu')
 class Prediction_algorithm():
 
     def __init__(self):
-        folderpath_read = r'/input/images/coronary-angiography-x-ray-stack/'
-        filename = os.listdir(folderpath_read)[0]  # pick the first (and only) file in folder
+        
+        folderpath_read = r'/input/images/coronary-angiography-x-ray-stack/'   #path to the folder storing the coronary-angiography-x-ray-stack images to be tested
+        filename = os.listdir(folderpath_read)[0]  # pick the first (only one provided the challenge) file in folder
         self.input_path = os.path.join(folderpath_read, filename)
 
         folderpath_write = r'/output/'
@@ -76,8 +77,9 @@ class Prediction_algorithm():
             # image.SetOrigin(stacked_images.GetOrigin())
             # image.SetDirection(stacked_images.GetDirection())
             png_name = mapping_dictionary_final_stenosis [f"slice_{filename}"]
-            new_name = 'STEN_' + (png_name[:-4]).zfill(3) + '_0000.png'
             
+            new_name = 'STEN_' + (png_name[:-4]).zfill(3) + '_0000.png'
+            # Slices of stacked_images are saved /saved_images
             output_filename = f"/opt/app/saved_images/{new_name}"
             sitk.WriteImage(image, output_filename)
         
