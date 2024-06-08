@@ -6,7 +6,6 @@ torch==2.0.1
 torchvision==0.15.2
 tqdm
 --extra-index-url https://download.pytorch.org/whl/cpu
-torch>1.12
 acvl-utils>=0.2
 dynamic-network-architectures>=0.2
 tqdm    
