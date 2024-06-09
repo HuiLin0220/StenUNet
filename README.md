@@ -18,7 +18,7 @@ python>=3.9 and torch>=2.0.0
 
 ## Prepare data
 Dataset folder structure
-
+You need to 
       daset_train/
       
       
@@ -36,17 +36,47 @@ Dataset folder structure
           │   ├── sten_0001_0001.png
           │   ├── sten_0001_0003.png
           │   ├── ...
-          ├── prediction
+          ├── raw_prediction
           │   ├── sten_0000.png
           │   ├── sten_0001.png
           │   ├── ...
+          ├── post_prediction
+          │   ├── sten_0000.png
+          │   ├── sten_0001.png
+          │   ├── ...
+
 
 
                                     
 ## Train
 - StenUnet's weight ([Google drive](https://drive.google.com/file/d/1BO4whry0i50h_yzqQwUw1k7QyyLUk2U3/view?usp=sharing)).
 ## Inference
+Rename and put the test images in dataset_test/raw, and run evaluation.py; you will get the preprocessed images, raw prediction after StenUNet, and post_prediction after postprocessing. You can integrate your own preprocessing/postprocessing codes in [preprocess.py](pre_process/preprocess.py)
 
+The data folder structure is like this:
+
+      daset_test/
+          ├── raw
+          │   ├── sten_0000_0000.png
+          │   ├── sten_0001_0000.png
+          │   ├── ...
+          ├── preprocessed
+          │   ├── sten_0000_0000.png       # prerpocessing method0
+          │   ├── sten_0000_0001.png       # prerpocessing method1
+          │   ├── sten_0000_0003.png       # prerpocessing method2
+          │   ├── ... 
+          │   ├── sten_0001_0000.png
+          │   ├── sten_0001_0001.png
+          │   ├── sten_0001_0003.png
+          │   ├── ...
+          ├── raw_prediction
+          │   ├── sten_0000.png
+          │   ├── sten_0001.png
+          │   ├── ...
+          ├── post_prediction
+          │   ├── sten_0000.png
+          │   ├── sten_0001.png
+          │   ├── ...
 ## References
 [nnunet](https://github.com/MIC-DKFZ/nnUNet)
 
