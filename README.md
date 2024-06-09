@@ -17,7 +17,7 @@ python>=3.9 and torch>=2.0.0
       pip install  -r ./requirements.txt
 
 ## Prepare data
-Dataset folder structure
+Inference folder structure
 You need to 
       daset_train/
       
