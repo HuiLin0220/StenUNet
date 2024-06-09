@@ -22,15 +22,18 @@ dataset
       daset_test/
           ├── raw
           │   ├── sten_0000_0000.png
-          │   ├── sten_0000_0001.png
-          │   ├── sten_0000_0003.png
+          │   ├── sten_0001_0000.png
+          │   ├── ...
+          ├── preprocessed
+          │   ├── sten_0000_0000.png # prerpocess method0
+          │   ├── sten_0000_0001.png # prerpocess method1
+          │   ├── sten_0000_0003.png # prerpocess method2
           │   ├── ... 
           │   ├── sten_0001_0000.png
           │   ├── sten_0001_0001.png
           │   ├── sten_0001_0003.png
           │   ├── ...
-    
-(if you preprocess the same CAD image in several different ways; otherwise you just have sten_0001_0000.png for image 0001.)
+
 
                                     
 ## Train
