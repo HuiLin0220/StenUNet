@@ -7,7 +7,7 @@ This algorithm is for the stenosis detection task in [ARCADE Challenge](https://
 Our publication:  StenUNet: Automatic Stenosis Detection from X-ray Coronary Angiography [Arxiv](https://arxiv.org/abs/2310.14961)
 
 Please refer to [MICCAI-ARCADE](https://github.com/NMHeartAI/MICCAI_ARCADE.git) for the segmentation detection task.
-
+$${\color{red}XXX}$$
 
 ## Installation
 python>=3.9 and torch>=2.0.0
