@@ -8,8 +8,6 @@ Please refer to [MICCAI-ARCADE](https://github.com/NMHeartAI/MICCAI_ARCADE.git) 
 
 
 ## Installation
-- [ instructions]
-
       git clone https://github.com/HuiLin0220/StenUNet.git
       cd StenUNet
       pip install  -r ./requirements.txt
