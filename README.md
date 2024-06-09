@@ -17,7 +17,7 @@ python>=3.9 and torch>=2.0.0
       pip install  -r ./requirements.txt
 
 ## Prepare data
-Inference folder structure
+Training folder structure
 You need to 
       daset_train/
       
@@ -60,7 +60,7 @@ You need to
 
 You can integrate your own preprocessing/postprocessing strategies in [preprocess.py](pre_process/preprocess.py)/[post_process](post_process/remove_small_segments.py)
 
-The data folder structure is like this:
+The inference folder structure is like this:
 
       daset_test/
           ├── raw
