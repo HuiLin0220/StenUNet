@@ -9,6 +9,7 @@ Please refer to [MICCAI-ARCADE](https://github.com/NMHeartAI/MICCAI_ARCADE.git) 
 
 ## Installation
 python>=3.9 and torch>=2.0.0
+
       conda create -n stenunet_env python=3.9
       conda activate stenunet_env
       git clone https://github.com/HuiLin0220/StenUNet.git
