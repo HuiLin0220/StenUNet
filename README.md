@@ -1,13 +1,12 @@
 <a href="https://arxiv.org/abs/2310.14961" alt="Citation"><img src="https://img.shields.io/badge/cite-citation-blue" /></a>
 # Introduction
-This algorithm is for the stenosis detection task in [ARCADE Challenge](https://arcade.grand-challenge.org/), which was held at MICCAI 2023. 
-We are ranked $${\color{red}  ranked 3rd}$$
-<span style="color:blue">blue</span>
+This algorithm is for the stenosis detection task in [ARCADE Challenge](https://arcade.grand-challenge.org/), which was held at MICCAI 2023. We are ranked ${\textsf{\color{red}3rd}}$ !
+
 Our publication:  StenUNet: Automatic Stenosis Detection from X-ray Coronary Angiography [Arxiv](https://arxiv.org/abs/2310.14961)
 
 Please refer to [MICCAI-ARCADE](https://github.com/NMHeartAI/MICCAI_ARCADE.git) for the segmentation detection task.
 
-We are ranked ${\textsf{\color{red}3rd}}$ !
+
 ## Installation
 python>=3.9 and torch>=2.0.0
 
