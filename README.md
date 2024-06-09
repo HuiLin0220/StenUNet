@@ -17,7 +17,20 @@ python>=3.9 and torch>=2.0.0
       pip install  -r ./requirements.txt
 
 ## Prepare data
+dataset
 
+daset_test/
+    ├── raw
+    │   ├── sten_0000_0000.png
+    │   ├── sten_0000_0001.png
+    │   ├── sten_0000_0003.png
+    │   ├── ... 
+    │   ├── sten_0001_0000.png
+    │   ├── sten_0001_0001.png
+    │   ├── sten_0001_0003.png
+    │   ├── ...(if you preprocess the same CAD image in several different ways; otherwise you just have sten_0001_0000.png for image 0001.)
+
+                                    
 ## Train
 - StenUnet's weight ([Google drive](https://drive.google.com/file/d/1BO4whry0i50h_yzqQwUw1k7QyyLUk2U3/view?usp=sharing)).
 ## Inference
