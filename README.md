@@ -7,7 +7,7 @@ Our publication:  StenUNet: Automatic Stenosis Detection from X-ray Coronary Ang
 
 Please refer to [MICCAI-ARCADE](https://github.com/NMHeartAI/MICCAI_ARCADE.git) for the segmentation detection task.
 
-${\textsf{\color{lightgreen}Green}}$
+We are ranked ${\textsf{\color{red}3rd}}$ !
 ## Installation
 python>=3.9 and torch>=2.0.0
 
