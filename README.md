@@ -17,8 +17,11 @@ python>=3.9 and torch>=2.0.0
       pip install  -r ./requirements.txt
 
 ## Prepare data
-dataset
+Dataset folder structure
 
+      daset_train/
+      
+      
       daset_test/
           ├── raw
           │   ├── sten_0000_0000.png
