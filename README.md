@@ -28,7 +28,9 @@ daset_test/
     │   ├── sten_0001_0000.png
     │   ├── sten_0001_0001.png
     │   ├── sten_0001_0003.png
-    │   ├── ...(if you preprocess the same CAD image in several different ways; otherwise you just have sten_0001_0000.png for image 0001.)
+    │   ├── ...
+    
+(if you preprocess the same CAD image in several different ways; otherwise you just have sten_0001_0000.png for image 0001.)
 
                                     
 ## Train
