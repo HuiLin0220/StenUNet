@@ -55,7 +55,7 @@ You need to
 2. Run evaluation.py;
 3. You will get the preprocessed images, raw prediction after StenUNet, and post_prediction after postprocessing.
 
-You can integrate your own preprocessing/postprocessing codes in [preprocess.py](pre_process/preprocess.py)/[post_process](post_process/remove_small_segments.py)
+You can integrate your own preprocessing/postprocessing strategies in [preprocess.py](pre_process/preprocess.py)/[post_process](post_process/remove_small_segments.py)
 
 The data folder structure is like this:
 
