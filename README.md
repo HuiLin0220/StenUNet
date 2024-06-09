@@ -1,7 +1,7 @@
 <a href="https://arxiv.org/abs/2310.14961" alt="Citation"><img src="https://img.shields.io/badge/cite-citation-blue" /></a>
 # Introduction
 This algorithm is for the stenosis detection task in [ARCADE Challenge](https://arcade.grand-challenge.org/), which was held at MICCAI 2023. 
-$${\color{red} We are ranked 3rd}$$
+We are ranked $${\color{red}  ranked 3rd}$$
 <span style="color:blue">blue</span>
 Our publication:  StenUNet: Automatic Stenosis Detection from X-ray Coronary Angiography [Arxiv](https://arxiv.org/abs/2310.14961)
 
