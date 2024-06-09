@@ -54,7 +54,7 @@ You need to
 1. Rename and put the test images in './dataset_test/raw';
 2. Run
   
-   python evaluation.py -chk Model_weights_path;
+         python evaluation.py -chk Model_weights_path;
    
 5. You will get the preprocessed images, raw prediction after StenUNet, and post_prediction after postprocessing.
 
