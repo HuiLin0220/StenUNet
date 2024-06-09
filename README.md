@@ -23,14 +23,11 @@ Please refer to [MICCAI-ARCADE](https://github.com/NMHeartAI/MICCAI_ARCADE.git) 
 
 ## Citation
 Please cite the following paper when using SteUNet:
-
-      @misc{lin2023stenunet,
-      title={StenUNet: Automatic Stenosis Detection from X-ray Coronary Angiography}, 
-      author={Hui Lin and Tom Liu and Aggelos Katsaggelos and Adrienne Kline},
-      year={2023},
-      eprint={2310.14961},
-      archivePrefix={arXiv},
-      primaryClass={eess.IV}
+      @article{lin2023stenunet,
+        title={StenUNet: Automatic Stenosis Detection from X-ray Coronary Angiography},
+        author={Lin, Hui and Liu, Tom and Katsaggelos, Aggelos and Kline, Adrienne},
+        journal={arXiv preprint arXiv:2310.14961},
+        year={2023}
       }
 
 ## Contact Us
