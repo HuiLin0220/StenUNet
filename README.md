@@ -28,9 +28,9 @@ Dataset folder structure
           │   ├── sten_0001_0000.png
           │   ├── ...
           ├── preprocessed
-          │   ├── sten_0000_0000.png       # prerpocess method0
-          │   ├── sten_0000_0001.png       # prerpocess method1
-          │   ├── sten_0000_0003.png       # prerpocess method2
+          │   ├── sten_0000_0000.png       # prerpocessing method0
+          │   ├── sten_0000_0001.png       # prerpocessing method1
+          │   ├── sten_0000_0003.png       # prerpocessing method2
           │   ├── ... 
           │   ├── sten_0001_0000.png
           │   ├── sten_0001_0001.png
