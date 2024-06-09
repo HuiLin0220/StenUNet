@@ -36,6 +36,10 @@ Dataset folder structure
           │   ├── sten_0001_0001.png
           │   ├── sten_0001_0003.png
           │   ├── ...
+          ├── prediction
+          │   ├── sten_0000.png
+          │   ├── sten_0001.png
+          │   ├── ...
 
 
                                     
