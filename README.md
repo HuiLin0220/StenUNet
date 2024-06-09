@@ -18,7 +18,8 @@ Please refer to [MICCAI-ARCADE](https://github.com/NMHeartAI/MICCAI_ARCADE.git) 
 - StenUnet's weight ([Google drive](https://drive.google.com/file/d/1BO4whry0i50h_yzqQwUw1k7QyyLUk2U3/view?usp=sharing)).
 ## Inference
 
-## References and Acknowledgements:
+## References
+[nnunet](https://github.com/MIC-DKFZ/nnUNet)
 
 ## Citation
 If you find our work is useful, please cite our work.
