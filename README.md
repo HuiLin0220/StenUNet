@@ -18,7 +18,7 @@ python>=3.9 and torch>=2.0.0
 
 ## Prepare data
 Training folder structure
-1. Rename and put the training images in this folder "./nnNet_training/Raw_data/";
+1. Rename and put the training images in this folder "./nnNet_training/Raw_data/"
 
       daset_test/
           ├── imagesTr
