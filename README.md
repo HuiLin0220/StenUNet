@@ -39,7 +39,7 @@ The training folder structure is like this:
           │   ├── sten_0002.png
           │   ├── ...
 ## Train
-      python training_planning.py
+      python training_planning.py #Planning hyper_parameters
 
       python training.py
 
