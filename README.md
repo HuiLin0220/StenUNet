@@ -53,7 +53,7 @@ python>=3.9 and torch>=2.0.0
 1. Rename and put the test images in this folder'./dataset_test/raw';
 2. Run
   
-         python inference.py -chk MODEL_WEIGHTS_PATH;
+         python inference.py -chk MODEL_WEIGHTS_PATH
 
 3.Shareing StenUnet's weight ([Google drive](https://drive.google.com/file/d/1BO4whry0i50h_yzqQwUw1k7QyyLUk2U3/view?usp=sharing)).   
 4. You will get the preprocessed images, raw prediction after StenUNet, and post_prediction after postprocessing.
