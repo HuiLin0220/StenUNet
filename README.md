@@ -23,7 +23,7 @@ python>=3.9 and torch>=2.0.0
 The training folder structure is like this:
 
          Raw_data/Dataset_train_val/  
-          ├── raw
+          ├── imagesTr
           │   ├── sten_0000_0000.png
           │   ├── sten_0000_0001.png
           │   ├── ...
