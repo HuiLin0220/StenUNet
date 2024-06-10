@@ -19,7 +19,8 @@ python>=3.9 and torch>=2.0.0
 ## Prepare data
 
 1. Rename and put the training images in this folder "./nnNet_training/Raw_data/"
-Training folder structure is like this:
+
+The training folder structure is like this:
 
          Raw_data/Dataset_train_val/  
           ├── raw
