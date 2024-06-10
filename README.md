@@ -38,6 +38,7 @@ The training data folder structure is like this:
           ├── dataset.json
           
 - Rename and put the training images in this folder "./nnNet_training/Raw_data/"
+
       1. sten_0000_0000.png and sten_0000_0001.png are considered two different modalities for the same raw image (sten_0000).
       2. You can do some preprocessing (we provide some preprocessing methods in [preprocess.py](pre_process/preprocess.py)) on the raw image and get several modalities for training.
       3. Note that inference and training should use the same preprocessing strategies.
