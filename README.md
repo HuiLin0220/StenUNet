@@ -39,8 +39,10 @@ The training folder structure is like this:
           │   ├── sten_0002.png
           │   ├── ...
 ## Train
-- 
-- 
+      python training_planning.py
+
+      python training.py
+
 ## Inference
 - Rename and put the test images in this folder'./dataset_test/raw';
 2. Run
