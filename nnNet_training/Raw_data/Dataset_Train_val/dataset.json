@@ -1,0 +1,12 @@
+{
+    "channel_names": {
+        "0": "grey",
+        "1": "pre1"
+    },
+    "labels": {
+        "background": 0,
+        "sten": 1
+    },
+    "numTraining": 5,
+    "file_ending": ".png"
+}
