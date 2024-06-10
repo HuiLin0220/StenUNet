@@ -52,9 +52,10 @@ python>=3.9 and torch>=2.0.0
 
       CUDA_VISIBLE_DEVICES=0 python training.py 0
       #CUDA_VISIBLE_DEVICES=X python train.py fold_ID(0,1,2,3,4)
-- Finetune the pre-trained model (([Shared weights](https://drive.google.com/file/d/1BO4whry0i50h_yzqQwUw1k7QyyLUk2U3/view?usp=sharing)).)on your own data
+- Finetune the pre-trained model on your own data
 
       CUDA_VISIBLE_DEVICES=0 python training.py 0 -pretrained_weights MODEL_WEIGHTS_PATH
+  if you want to use (([Shared weights](https://drive.google.com/file/d/1BO4whry0i50h_yzqQwUw1k7QyyLUk2U3/view?usp=sharing)).), you need to replace the plan.json with 
 ## Inference
 1. Rename and put the test images in this folder'./dataset_test/raw';
 2. Run
