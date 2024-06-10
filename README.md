@@ -46,11 +46,14 @@ python>=3.9 and torch>=2.0.0
   ("numTraining" indicates the number of training samples in your dataset.)
 ## Train
 - Planning hyper_parameters
+
       python training_planning.py 
 - Train from scratch
+
       CUDA_VISIBLE_DEVICES=0 python training.py 0
       #CUDA_VISIBLE_DEVICES=X python train.py fold_ID(0,1,2,3,4)
 - Finetune the pre-trained model on your own data
+
       CUDA_VISIBLE_DEVICES=0 python training.py 0 -pretrained_weights MODEL_WEIGHTS_PATH
 ## Inference
 1. Rename and put the test images in this folder'./dataset_test/raw';
