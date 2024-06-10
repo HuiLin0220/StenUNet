@@ -19,7 +19,7 @@ python>=3.9 and torch>=2.0.0
 ## Prepare data
 
 - Rename and put the training images in this folder "./nnNet_training/Raw_data/"
-
+- Edit dataset.json
 The training folder structure is like this:
 
          Raw_data/Dataset_train_val/  
@@ -38,8 +38,10 @@ The training folder structure is like this:
           │   ├── sten_0001.png
           │   ├── sten_0002.png
           │   ├── ...
+          ├── dataset.json
 
-sten_0000_0000.png and sten_0000_0001.png are considered two different modalities for the same raw image (sten_0000). You can do some preprocessing (we provide some preprocessing methods in [preprocess.py](pre_process/preprocess.py)) on the raw image and get several modalities for training.
+1. Explanation: sten_0000_0000.png and sten_0000_0001.png are considered two different modalities for the same raw image (sten_0000). You can do some preprocessing (we provide some preprocessing methods in [preprocess.py](pre_process/preprocess.py)) on the raw image and get several modalities for training.
+2. 
 ## Train
       python training_planning.py #Planning hyper_parameters
 
