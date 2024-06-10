@@ -18,31 +18,24 @@ python>=3.9 and torch>=2.0.0
 
 ## Prepare data
 Training folder structure
-You need to 
-      daset_train/
+1. Rename and put the training images in this folder "./nnNet_training/Raw_data/";
       
       
-      daset_test/
-          ├── raw
+      Raw_data/Dataset_Train_val/
+          ├── imagesTr
           │   ├── sten_0000_0000.png
-          │   ├── sten_0001_0000.png
+          │   ├── sten_0000_0001.png
           │   ├── ...
-          ├── preprocessed
-          │   ├── sten_0000_0000.png       # prerpocessing method0
-          │   ├── sten_0000_0001.png       # prerpocessing method1
-          │   ├── sten_0000_0003.png       # prerpocessing method2
+          │   ├── sten_0001_0000.png      
+          │   ├── sten_0001_0001.png      
           │   ├── ... 
-          │   ├── sten_0001_0000.png
-          │   ├── sten_0001_0001.png
-          │   ├── sten_0001_0003.png
+          │   ├── sten_0002_0000.png
+          │   ├── sten_0002_0001.png
           │   ├── ...
-          ├── raw_prediction
+          ├── labelsTr
           │   ├── sten_0000.png
           │   ├── sten_0001.png
-          │   ├── ...
-          ├── post_prediction
-          │   ├── sten_0000.png
-          │   ├── sten_0001.png
+          │   ├── sten_0002.png
           │   ├── ...
 
 
