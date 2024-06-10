@@ -36,12 +36,11 @@ python>=3.9 and torch>=2.0.0
           │   ├── sten_0002.png
           │   ├── ...
           ├── dataset.json
-          
-- Rename and put the training images in this folder "./nnNet_training/Raw_data/"
+      (1) sten_0000_0000.png and sten_0000_0001.png are considered two different modalities for the same raw image (sten_0000).
+      (2) We provide some preprocessing methods in [preprocess.py](pre_process/preprocess.py)) You can do some preprocessing on the raw image and get several modalities for training.
+      (3) Note that inference and training should use the same preprocessing strategies.
 
-      1. sten_0000_0000.png and sten_0000_0001.png are considered two different modalities for the same raw image (sten_0000).
-      2. We provide some preprocessing methods in [preprocess.py](pre_process/preprocess.py)) You can do some preprocessing on the raw image and get several modalities for training.
-      3. Note that inference and training should use the same preprocessing strategies.
+- Rename and put the training images in this folder "./nnNet_training/Raw_data/"
 - Edit dataset.json
 ## Train
       python training_planning.py #Planning hyper_parameters
