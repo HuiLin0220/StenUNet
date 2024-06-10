@@ -55,7 +55,7 @@ python>=3.9 and torch>=2.0.0
 - Finetune the pre-trained model on your own data
 
       CUDA_VISIBLE_DEVICES=0 python training.py 0 -pretrained_weights MODEL_WEIGHTS_PATH
-  if you want to use [Shared weights](https://drive.google.com/file/d/1BO4whry0i50h_yzqQwUw1k7QyyLUk2U3/view?usp=sharing), you need to replace [your nnUNetPlans.json](nnNet_training/nnUNet_preprocessed/Dataset_Train_val/nnUNetPlans.json) with [my nnUNetPlans.json](nnUNetPlans.json) and use the "foreground_intensity_properties_per_channel" in your[dataset_fingerprint.json](nnNet_training/nnUNet_preprocessed/Dataset_Train_val/dataset_fingerprint.json)
+  if you want to use [Shared weights](https://drive.google.com/file/d/1BO4whry0i50h_yzqQwUw1k7QyyLUk2U3/view?usp=sharing), you need to replace [your nnUNetPlans.json](nnNet_training/nnUNet_preprocessed/Dataset_Train_val/nnUNetPlans.json) with [my nnUNetPlans.json](nnUNetPlans.json) and use the "foreground_intensity_properties_per_channel" in your [dataset_fingerprint.json](nnNet_training/nnUNet_preprocessed/Dataset_Train_val/dataset_fingerprint.json)
 ## Inference
 1. Rename and put the test images in this folder'./dataset_test/raw';
 2. Run
