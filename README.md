@@ -39,14 +39,16 @@ The training folder structure is like this:
           │   ├── sten_0002.png
           │   ├── ...
 ## Train
-- StenUnet's weight ([Google drive](https://drive.google.com/file/d/1BO4whry0i50h_yzqQwUw1k7QyyLUk2U3/view?usp=sharing)).
+- 
+- 
 ## Inference
 1. Rename and put the test images in this folder'./dataset_test/raw';
 2. Run
   
          python evaluation.py -chk MODEL_WEIGHTS_PATH;
-   
-5. You will get the preprocessed images, raw prediction after StenUNet, and post_prediction after postprocessing.
+
+3.Shreing StenUnet's weight ([Google drive](https://drive.google.com/file/d/1BO4whry0i50h_yzqQwUw1k7QyyLUk2U3/view?usp=sharing)).   
+4. You will get the preprocessed images, raw prediction after StenUNet, and post_prediction after postprocessing.
 
 You can integrate your own preprocessing/postprocessing strategies in [preprocess.py](pre_process/preprocess.py)/[post_process](post_process/remove_small_segments.py)
 
