@@ -41,8 +41,8 @@ The training folder structure is like this:
 ## Train
       python training_planning.py #Planning hyper_parameters
 
-      python training.py
-
+      CUDA_VISIBLE_DEVICES=0 python training.py 0
+      #CUDA_VISIBLE_DEVICES=X python train.py fold_ID(0,1,2,3,4)
 ## Inference
 - Rename and put the test images in this folder'./dataset_test/raw';
 2. Run
