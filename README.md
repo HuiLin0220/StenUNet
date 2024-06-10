@@ -17,10 +17,7 @@ python>=3.9 and torch>=2.0.0
       pip install  -r ./requirements.txt
 
 ## Prepare data
-
-- Rename and put the training images in this folder "./nnNet_training/Raw_data/"
-- Edit dataset.json
-The training folder structure is like this:
+The training data folder structure is like this:
 
          Raw_data/Dataset_train_val/  
           ├── imagesTr
@@ -39,16 +36,19 @@ The training folder structure is like this:
           │   ├── sten_0002.png
           │   ├── ...
           ├── dataset.json
-
-1. Explanation: sten_0000_0000.png and sten_0000_0001.png are considered two different modalities for the same raw image (sten_0000). You can do some preprocessing (we provide some preprocessing methods in [preprocess.py](pre_process/preprocess.py)) on the raw image and get several modalities for training.
-2. 
+          
+- Rename and put the training images in this folder "./nnNet_training/Raw_data/"
+1. sten_0000_0000.png and sten_0000_0001.png are considered two different modalities for the same raw image (sten_0000).
+2. You can do some preprocessing (we provide some preprocessing methods in [preprocess.py](pre_process/preprocess.py)) on the raw image and get several modalities for training.
+3. Note that inference and training should use the same preprocessing strategies.
+- Edit dataset.json
 ## Train
       python training_planning.py #Planning hyper_parameters
 
       CUDA_VISIBLE_DEVICES=0 python training.py 0
       #CUDA_VISIBLE_DEVICES=X python train.py fold_ID(0,1,2,3,4)
 ## Inference
-- Rename and put the test images in this folder'./dataset_test/raw';
+1. Rename and put the test images in this folder'./dataset_test/raw';
 2. Run
   
          python inference.py -chk MODEL_WEIGHTS_PATH;
