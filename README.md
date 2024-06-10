@@ -19,8 +19,7 @@ python>=3.9 and torch>=2.0.0
 ## Prepare data
 Training folder structure
 1. Rename and put the training images in this folder "./nnNet_training/Raw_data/";
-      
-      
+            
       Raw_data/Dataset_Train_val/
           ├── imagesTr
           │   ├── sten_0000_0000.png
@@ -37,10 +36,7 @@ Training folder structure
           │   ├── sten_0001.png
           │   ├── sten_0002.png
           │   ├── ...
-
-
-
-                                    
+                                   
 ## Train
 - StenUnet's weight ([Google drive](https://drive.google.com/file/d/1BO4whry0i50h_yzqQwUw1k7QyyLUk2U3/view?usp=sharing)).
 ## Inference
