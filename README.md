@@ -21,6 +21,7 @@ python>=3.9 and torch>=2.0.0
 1. Rename and put the training images in this folder "./nnNet_training/Raw_data/"
 Training folder structure is like this:
 
+          Raw/  
           ├── raw
           │   ├── sten_0000_0000.png
           │   ├── sten_0000_0001.png
