@@ -45,17 +45,20 @@ python>=3.9 and torch>=2.0.0
 - Edit dataset.json
   ("numTraining" indicates the number of training samples in your dataset.)
 ## Train
-      python training_planning.py #Planning hyper_parameters
-
+- Planning hyper_parameters
+      python training_planning.py 
+- Train from scratch
       CUDA_VISIBLE_DEVICES=0 python training.py 0
       #CUDA_VISIBLE_DEVICES=X python train.py fold_ID(0,1,2,3,4)
+- Finetune the pre-trained model on your own data
+      CUDA_VISIBLE_DEVICES=0 python training.py 0 -pretrained_weights MODEL_WEIGHTS_PATH
 ## Inference
 1. Rename and put the test images in this folder'./dataset_test/raw';
 2. Run
   
          python inference.py -chk MODEL_WEIGHTS_PATH
 
-3.Shareing StenUnet's weight ([Google drive](https://drive.google.com/file/d/1BO4whry0i50h_yzqQwUw1k7QyyLUk2U3/view?usp=sharing)).   
+3.Sharing StenUnet's weight ([Google drive](https://drive.google.com/file/d/1BO4whry0i50h_yzqQwUw1k7QyyLUk2U3/view?usp=sharing)).   
 4. You will get the preprocessed images, raw prediction after StenUNet, and post_prediction after postprocessing.
 
 You can integrate your own preprocessing/postprocessing strategies in [preprocess.py](pre_process/preprocess.py)/[post_process](post_process/remove_small_segments.py)
