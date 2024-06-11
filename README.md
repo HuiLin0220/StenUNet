@@ -51,7 +51,7 @@ python>=3.9 and torch>=2.0.0
 - Training from scratch
 
       CUDA_VISIBLE_DEVICES=0 python training.py 0
-      #CUDA_VISIBLE_DEVICES=X python train.py fold_ID(0,1,2,3,4)
+      #CUDA_VISIBLE_DEVICES=X python train.py fold_ID (can be 0,1,2,3,4)
 - Finetune the pre-trained model on your own data
 
       CUDA_VISIBLE_DEVICES=0 python training.py 1 -pretrained_weights MODEL_WEIGHTS_PATH
