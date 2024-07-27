@@ -1,4 +1,5 @@
-<a href="https://arxiv.org/abs/2310.14961" alt="Citation"><img src="https://img.shields.io/badge/cite-citation-blue" /></a> 
+
+[![arXiv](https://img.shields.io/badge/arXiv-2311.12437-blue)]([https://arxiv.org/pdf/2311.12437.pdf](https://arxiv.org/abs/2310.14961))
  [![cite](https://img.shields.io/badge/cite-BibTex-yellow)](https://scholar.googleusercontent.com/scholar.bib?q=info:x72dE5r8oyEJ:scholar.google.com/&output=citation&scisdr=ClEVFUEEEL3snBU93N4:AFWwaeYAAAAAZqU7xN4teCLWjRjR3O6VYcWc-C4&scisig=AFWwaeYAAAAAZqU7xKO77wluctgeV-q56DF5n_4&scisf=4&ct=citation&cd=-1&hl=en&scfhb=1)
 [![website](https://img.shields.io/badge/Challenge%20website-50d13d)]([https://www.synapse.org/#!Synapse:syn51236108/wiki/621615](https://arcade.grand-challenge.org/))
  
